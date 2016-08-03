@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="nlauncher">
+<head>
+    <meta charset="UTF-8">
+    <title>nlauncher</title>
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    nlauncher
+
+    <div ng-controller="ApplicationIndexController as appCtrl">
+        <ul>
+            <li ng-repeat="group in appCtrl.appGroups">
+              {{group.name}}
+            </li>
+        </ul>
+    </div>
+
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/js/nlauncher/app.js"></script>
+
+    <!-- Services -->
+    <script src="/js/nlauncher/services/appdata.service.js"></script>
+    <script src="/js/nlauncher/controllers/appindex.controller.js"></script>
+</body>
+</html>

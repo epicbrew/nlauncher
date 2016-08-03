@@ -1,0 +1,21 @@
+{
+  "name": "nlauncher",
+  "description": "node-process-launcher",
+  "authors": [
+    "Matt Shildt <matt.shildt@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.x",
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.1.1"
+  }
+}

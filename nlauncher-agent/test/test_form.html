@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AgentServer Test</title>
+</head>
+<body>
+    <form action="http://localhost:8888/start" method="post">
+        <p>
+            Application ID: <input type="text" name="app_id">
+        </p>
+        <p>
+            Command: <input type="text" name="command">
+        </p>
+        <p>
+            <input type="submit" value="Start">
+        </p>
+    </form>
+
+    <hr/>
+
+    <form action="http://localhost:8888/stop" method="post">
+        <p>
+            Application ID: <input type="text" name="app_id">
+        </p>
+        <p>
+            <input type="submit" value="Stop">
+        </p>
+    </form>
+</body>
+</html>
