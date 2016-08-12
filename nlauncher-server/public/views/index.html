@@ -13,15 +13,34 @@
     nlauncher
 
     <div ng-controller="ApplicationIndexController as appCtrl">
-        <ul class="collapsible" data-collapsible="accordion">
+        <ul class="collapsible popout" data-collapsible="accordion">
             <li ng-repeat="group in appCtrl.appGroups">
                 <div class="collapsible-header"> {{group.name}} </div>
                 <div class="collapsible-body">
+                    <table class="bordered">
+                        <thead>
+                            <tr>
+                                <th data-field="status">Status</th>
+                                <th data-field="name">Name</th>
+                                <th data-field="node">Node</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="app in group.applications">
+                                <td>idle</td>
+                                <td>{{app.name}}</td>
+                                <td>{{app.serverAssignment}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!--
                     <ul>
                         <li ng-repeat="app in group.applications">
                             {{app.name}}
                         </li>
                     </ul>
+                    -->
                 </div>
             </li>
         </ul>
