@@ -19,7 +19,6 @@
                 .catch(getApplicationsFailed);
 
             function getApplicationsComplete(response) {
-                //return response.data.results;
                 console.log("got applications:", response.data);
                 return response.data;
             }

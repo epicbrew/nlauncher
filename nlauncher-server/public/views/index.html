@@ -1,14 +1,16 @@
 <!doctype html>
-<html lang="en" ng-app="nlauncher">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
     <title>nlauncher</title>
-    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body ng-app="nlauncher" ng-cloak>
     nlauncher
 
+<!--
     <div ng-controller="ApplicationIndexController as appCtrl">
         <ul>
             <li ng-repeat="group in appCtrl.appGroups">
@@ -16,10 +18,32 @@
             </li>
         </ul>
     </div>
+-->
+    <div ng-controller="ApplicationIndexController as appCtrl">
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <!--md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch-->
+            <md-card md-theme="default" ng-repeat="group in appCtrl.appGroups">
+                <md-card-title>
+                  <md-card-title-text>
+                    <span class="md-headline">{{group.name}}</span>
+                  </md-card-title-text>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                  <md-button>Action 1</md-button>
+                  <md-button>Action 2</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </md-content>
+    </div>
 
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
     <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
+
     <script src="/js/nlauncher/app.js"></script>
 
     <!-- Services -->
