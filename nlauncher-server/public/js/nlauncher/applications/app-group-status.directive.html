@@ -1,0 +1,21 @@
+<table class="bordered">
+    <thead>
+        <tr>
+            <th data-field="status">Status - DEBUG</th>
+            <th data-field="name">Name</th>
+            <th data-field="node">Node</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>debug</td>
+            <td>debug</td>
+            <td>debug</td>
+        </tr>
+        <tr ng-repeat="app in vm.group.applications">
+            <td>idle</td>
+            <td>{{app.name}}</td>
+            <td>{{app.serverAssignment}}</td>
+        </tr>
+    </tbody>
+</table>

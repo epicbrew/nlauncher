@@ -1,0 +1,10 @@
+<ul class="collapsible popout" data-collapsible="expandable">
+    <li ng-repeat="group in vm.appGroups">
+
+        <div class="collapsible-header"> {{group.name}} </div>
+        <div class="collapsible-body">
+            <app-group-status group="group"></app-group-status>
+        </div>
+    </li>
+</ul>
+<script>$('.collapsible').collapsible();</script>

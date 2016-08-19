@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/bower_components/materialize/dist/css/materialize.min.css" media="screen,projection">
+    <link type="text/css" rel="stylesheet" href="/css/nlauncher.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>nlauncher</title>
+</head>
+
+<body ng-app="nlauncher" ng-cloak>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                nlauncher
+            </div>
+        </div>
+    </div>
+
+    <ul id="slide-out" class="side-nav fixed">
+      <li><a href="#!">First Sidebar Link</a></li>
+      <li><a href="#!">Second Sidebar Link</a></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+    <main>
+    <div class="container">
+        <div class="row">
+            <app-groups-list></app-groups-list>
+        </div>
+    </div>
+    </main>
+
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/materialize/dist/js/materialize.min.js"></script>
+
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/js/nlauncher/app.js"></script>
+
+    <!-- Services -->
+    <script src="/js/nlauncher/services/appdata.service.js"></script>
+
+    <!-- Directives -->
+    <script src="/js/nlauncher/applications/app-group-status.directive.js"></script>
+    <script src="/js/nlauncher/applications/app-groups-list.directive.js"></script>
+ 
+    <script>
+        $( document ).ready(function() {
+            $('.button-collapse').sideNav({
+                 menuWidth: 200, // Default is 240
+                 edge: 'left', // Choose the horizontal origin
+                 closeOnClick: false
+                 //closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+               }
+             );
+
+             $('.collapsible').collapsible({
+                   // A setting that changes the collapsible behavior to
+                   // expandable instead of the default accordion style
+                   accordion : false
+             });
+        });
+    </script>
+</body>
+</html>
