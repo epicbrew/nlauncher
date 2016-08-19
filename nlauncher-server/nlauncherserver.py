@@ -1,15 +1,17 @@
 from __future__ import print_function
 import sys
 import os
+import json
+import logging
 import tornado.ioloop
 import tornado.web
-import json
 from pymongo import MongoClient
 
 root = os.path.dirname(__file__)
 sys.path.append(root)
 
 from handlers.data import AppGroupsDataHandler
+from nlauncher.state import NlauncherState
 
 
 def get_database(dbname):
@@ -25,6 +27,16 @@ def get_config(config_path):
         config = json.load(f)
 
     return config
+
+
+def init_logging(config):
+    numeric_level = getattr(logging, config['log_level'])
+
+    if not isinstance(numeric_level, int):
+        logging.critical('Invalid log level: %s' % loglevel)
+        sys.exit(1)
+
+    logging.basicConfig(level=numeric_level)
 
 
 def make_app(database):
@@ -50,8 +62,12 @@ def main():
         sys.exit(1)
 
     config = get_config(sys.argv[1])
+    init_logging(config)
 
     db = get_database(config['database'])
+    state = NlauncherState(db)
+
+    state.query_app_state()
 
     app = make_app(db)
     app.listen(8888)
